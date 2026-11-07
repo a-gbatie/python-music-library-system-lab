@@ -143,4 +143,146 @@ Before you submit your solution, you need to save your progress with git.
   * Click on + Create Submission. Connect your repository for this lab.
   * For additional information on submitting assignments in CodeGrade: [Getting Started in Canvas](https://help.codegrade.com/for-students/getting-started/getting-started-in-canvas)
 
+## Song Class
+
+The `Song` class uses two types of attributes.
+
+### Instance Attributes
+
+Instance attributes store information about an individual song.
+
+| Attribute | Description |
+|---|---|
+| `name` | Stores the song's title. |
+| `artist` | Stores the artist's name. |
+| `genre` | Stores the song's genre. |
+
+### Class Attributes
+
+Class attributes store information shared by all `Song` objects.
+
+| Attribute | Description |
+|---|---|
+| `count` | Total number of songs created. |
+| `genres` | List of unique genres. |
+| `artists` | List of unique artists. |
+| `genre_count` | Dictionary counting songs by genre. |
+| `artist_count` | Dictionary counting songs by artist. |
+
+## Methods
+
+### `__init__(name, artist, genre)`
+
+The constructor runs automatically whenever a new `Song` object is created.
+
+It saves the song's information and calls the methods that update the library statistics.
+
+### `add_song_to_count()`
+
+Increases the total song count by one.
+
+### `add_to_genres()`
+
+Adds the song's genre to the shared genres list if it is not already present.
+
+### `add_to_artists()`
+
+Adds the song's artist to the shared artists list if they are not already present.
+
+### `add_to_genre_count()`
+
+Updates the `genre_count` dictionary to track the number of songs in each genre.
+
+### `add_to_artists_count()`
+
+Updates the `artist_count` dictionary to track the number of songs belonging to each artist.
+
+## Example Usage
+
+```python
+from lib.song import Song
+
+song1 = Song("Hello", "Adele", "Pop")
+song2 = Song("Easy On Me", "Adele", "Pop")
+song3 = Song("Yellow", "Coldplay", "Rock")
+
+print(Song.count)
+# 3
+
+print(Song.genres)
+# ['Pop', 'Rock']
+
+print(Song.artists)
+# ['Adele', 'Coldplay']
+
+print(Song.genre_count)
+# {'Pop': 2, 'Rock': 1}
+
+print(Song.artist_count)
+# {'Adele': 2, 'Coldplay': 1}
+```
+
+Each new song automatically updates the shared library information.
+
+## Installation and Setup
+
+### 1. Clone the Repository
+
+```bash
+git clone git@github.com:a-gbatie/python-music-library-system-lab.git
+```
+
+### 2. Open the Project
+
+Open the project folder in Visual Studio Code.
+
+### 3. Set Up Python 3.10
+
+```bash
+python3 -m pipenv --python /opt/homebrew/bin/python3.10
+```
+
+This command uses the Python 3.10 installation on my Mac.
+
+### 4. Install Dependencies
+
+```bash
+python3 -m pipenv install
+```
+
+## Running the Tests
+
+To run all tests:
+
+```bash
+python3 -m pipenv run pytest
+```
+
+To stop at the first failing test:
+
+```bash
+python3 -m pipenv run pytest -x
+```
+
+The tests verify that the `Song` class correctly stores song information and updates the library statistics.
+
+## Python Concepts I Practiced
+
+**Classes and Objects:** I created a `Song` class and used it to create individual song objects.
+
+**Instance Attributes:** I used `self.name`, `self.artist`, and `self.genre` to store information for each song.
+
+**Class Attributes:** I used shared attributes to track information across all song objects.
+
+**Lists:** I used lists to store unique artists and genres.
+
+**Dictionaries:** I used dictionaries to count songs by artist and genre.
+
+**Methods:** I created methods to organize the code and update library statistics.
+
+**Conditional Statements:** I used `if` and `else` statements to prevent duplicate entries and update song counts.
+
+## Screenshot of Completed Tests
+
+![alt text](image.png)
 
